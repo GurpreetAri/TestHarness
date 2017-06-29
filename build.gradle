@@ -1,0 +1,67 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	//maven {
+	//	url "${artifactoryUrl}/artifactory/plugins-release"
+	//}
+	//maven {
+	//	url "${artifactoryUrl}/artifactory/sbos-csp-release"
+	//}
+	//maven {
+	//	url "${artifactoryUrl}/artifactory/sbos-csp-snapshots"
+	//}
+	//maven {
+	//	url "${artifactoryUrl}/artifactory/csp-platform"
+	//}
+	//maven {
+	//	url "${artifactoryUrl}/artifactory/jcenter"
+	//}
+
+    //url: "file://Users/gkaur/Documents/Projects/Archive"
+
+    //mavenLocal()
+      //      {
+        //        url: "file://Users/gkaur/Documents/Projects/Archive"
+          //  }
+    //flatDir {
+     //   dirs '~/Documents/Projects/Archive'
+        //Users/gkaur/Documents/Projects/Archive
+    //}
+    //compile rootProject.files('libs/ojdbc7.jar')
+}
+
+
+dependencies {
+    //compile fileTree(dir: 'lib', include: '*.jar')
+
+    compile rootProject.files('lib/csp-java-library-headers-0.8.0.jar')
+    compile rootProject.files('lib/csp-java-library-logging:4.0.14.jar')
+    compile rootProject.files('lib/csp-java-library-security:2.4.3.jar')
+    compile rootProject.files('lib/csp-java-library-util:0.5.7.jar')
+
+    //compile rootProject.files('lib/*.jar')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+	//compile 'com.anz.csp:csp-java-library-headers:0.8.0'
+	//compile 'com.anz.csp:csp-java-library-logging:4.0.7'
+	//compile 'com.anz.csp:csp-java-library-security:2.4.4'
+}
